@@ -1,5 +1,7 @@
 package br.com.tarefamanager.service.impl;
 
+import br.com.tarefamanager.exception.EmailJaCadastradoException;
+import br.com.tarefamanager.exception.UsuarioNotFoundException;
 import br.com.tarefamanager.model.Usuario;
 import br.com.tarefamanager.repository.UsuarioRepository;
 import br.com.tarefamanager.service.UsuarioService;
@@ -18,12 +20,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public Usuario criarUsuario(Usuario usuario) {
+        if (usuarioRepository.existsByEmail(usuario.getEmail())) {
+            throw new EmailJaCadastradoException(usuario.getEmail());
+        }
+
         return usuarioRepository.save(usuario);
     }
+
 
     @Override
     public Usuario buscarPorId(String id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new UsuarioNotFoundException("Usuário não encontrado"));
     }
 }
