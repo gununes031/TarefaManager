@@ -3,8 +3,8 @@ package br.com.tarefamanager.dto;
 import br.com.tarefamanager.model.StatusTarefa;
 import br.com.tarefamanager.model.Subtarefa;
 
-import java.util.Objects;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public record SubtarefaDTO(
         String id,

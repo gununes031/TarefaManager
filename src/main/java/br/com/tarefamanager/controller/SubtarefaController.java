@@ -1,20 +1,18 @@
 package br.com.tarefamanager.controller;
 
 import br.com.tarefamanager.dto.SubtarefaDTO;
-import br.com.tarefamanager.model.Subtarefa;
 import br.com.tarefamanager.model.StatusTarefa;
+import br.com.tarefamanager.model.Subtarefa;
 import br.com.tarefamanager.service.SubtarefaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import jakarta.validation.Valid;
-import java.util.List;
 
 @RestController
 public class SubtarefaController {
@@ -26,7 +24,7 @@ public class SubtarefaController {
     }
 
     @Operation(
-            summary = "Cria uma subtarefa",
+            summary = "Cria uma nova subtarefa para a tarefa informada",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Subtarefa criada com sucesso"),
                     @ApiResponse(responseCode = "404", description = "Tarefa não encontrada"),
@@ -57,7 +55,7 @@ public class SubtarefaController {
 //    }
 
     @Operation(
-            summary = "Atualiza o status de uma tarefa",
+            summary = "Atualiza o status de uma subtarefa",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Status atualizado com sucesso"),
                     @ApiResponse(responseCode = "404", description = "Subtarefa não encontrada"),
@@ -72,7 +70,7 @@ public class SubtarefaController {
     }
 
     @Operation(
-            summary = "Consulta subtarefas",
+            summary = "Lista subtarefas de uma tarefa (com filtro opcional status)",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Subtarefas encontradas"),
                     @ApiResponse(responseCode = "404", description = "Tarefa não encontrada")

@@ -1,21 +1,19 @@
 package br.com.tarefamanager.controller;
 
 import br.com.tarefamanager.dto.TarefaDTO;
-import br.com.tarefamanager.model.Tarefa;
 import br.com.tarefamanager.model.StatusTarefa;
+import br.com.tarefamanager.model.Tarefa;
 import br.com.tarefamanager.service.TarefaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import jakarta.validation.Valid;
-import java.util.List;
 
 @Tag(
         name = "Tarefas",
@@ -32,7 +30,7 @@ public class TarefaController {
     }
 
     @Operation(
-            summary = "Cria uma tarefa",
+            summary = "Cria uma nova tarefa",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Tarefa criada com sucesso"),
                     @ApiResponse(responseCode = "400", description = "Tarefa Invalida")
@@ -78,7 +76,7 @@ public class TarefaController {
     }
 
     @Operation(
-            summary = "Consulta Tarefas",
+            summary = "Lista tarefas (com filtros opcionais: usuarioId, status)",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
             }

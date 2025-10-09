@@ -1,7 +1,7 @@
 package br.com.tarefamanager.service;
 
-import br.com.tarefamanager.model.Subtarefa;
 import br.com.tarefamanager.model.StatusTarefa;
+import br.com.tarefamanager.model.Subtarefa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

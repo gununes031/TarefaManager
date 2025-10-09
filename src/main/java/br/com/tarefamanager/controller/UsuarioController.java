@@ -5,15 +5,14 @@ import br.com.tarefamanager.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
-
 @Tag(
-        name = "Usuarios",
-        description = "Endpoints para criação e consulta de usuarios"
+        name = "Usuário",
+        description = "Endpoints para criação e consulta de usuários"
 )
 @RestController
 @RequestMapping("/usuarios")
@@ -26,10 +25,10 @@ public class UsuarioController {
     }
 
     @Operation(
-            summary = "Cria um usuario",
+            summary = "Cria um novo usuário",
             responses = {
-                    @ApiResponse(responseCode = "200", description = "Usuario criado com sucesso"),
-                    @ApiResponse(responseCode = "400", description = "Usuario invalido")
+                    @ApiResponse(responseCode = "200", description = "usuário criado com sucesso"),
+                    @ApiResponse(responseCode = "400", description = "usuário invalido")
             }
     )
     @PostMapping
@@ -39,10 +38,10 @@ public class UsuarioController {
     }
 
     @Operation(
-            summary = "Busca um usuario por id",
+            summary = "Busca usuário pelo ID",
             responses = {
-                    @ApiResponse(responseCode = "200", description = "Usuario encontrado"),
-                    @ApiResponse(responseCode = "404", description = "Usuario não encontrado")
+                    @ApiResponse(responseCode = "200", description = "usuário encontrado"),
+                    @ApiResponse(responseCode = "404", description = "usuário não encontrado")
             }
     )
     @GetMapping("/{id}")
