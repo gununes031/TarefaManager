@@ -1,6 +1,3 @@
-Perfeito! Aqui está um `README.md` completo, estruturado corretamente para você colocar na raiz do projeto:
-
-
 # TarefaManager
 
 Projeto **TarefaManager** – gerenciamento de tarefas e subtarefas, desenvolvido em **Java 21** com **Spring Boot** e **H2 Database**.
