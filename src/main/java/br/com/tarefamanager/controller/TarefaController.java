@@ -42,23 +42,6 @@ public class TarefaController {
         return new ResponseEntity<>(criada, HttpStatus.CREATED);
     }
 
-//    @Operation(
-//            summary = "Consulta Tarefas",
-//            responses = {
-//                    @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
-//            }
-//    )
-//    @GetMapping
-//    public ResponseEntity<List<TarefaDTO>> listar(
-//            @RequestParam(required = false) String usuarioId,
-//            @RequestParam(required = false) StatusTarefa status,
-//            @PageableDefault(size = 10, page = 0) Pageable pageable) {
-//        List<Tarefa> tarefas = tarefaService.listarPorStatus(status);
-//        List<TarefaDTO> dtos = tarefas.stream()
-//                .map(TarefaDTO::from)
-//                .toList();
-//        return ResponseEntity.ok(dtos);
-//    }
 
     @Operation(
             summary = "Atualiza o status de uma tarefa",

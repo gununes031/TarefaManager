@@ -38,21 +38,6 @@ public class SubtarefaController {
         return new ResponseEntity<>(criada, HttpStatus.CREATED);
     }
 
-//    @Operation(
-//            summary = "Consulta subtarefas",
-//            responses = {
-//                    @ApiResponse(responseCode = "200", description = "Subtarefas encontradas"),
-//                    @ApiResponse(responseCode = "404", description = "Tarefa não encontrada")
-//            }
-//    )
-//    @GetMapping("/tarefas/{tarefaId}/subtarefas")
-//    public ResponseEntity<List<SubtarefaDTO>> listar(@PathVariable String tarefaId) {
-//        List<Subtarefa> subtarefas = subtarefaService.listarSubtarefas(tarefaId);
-//        List<SubtarefaDTO> dtos = subtarefas.stream()
-//                .map(SubtarefaDTO::from)
-//                .toList();
-//        return ResponseEntity.ok(dtos);
-//    }
 
     @Operation(
             summary = "Atualiza o status de uma subtarefa",
