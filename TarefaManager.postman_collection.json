@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "6d9c918b-e282-4ee0-b25b-3eef4951607c",
+		"name": "TarefaManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8970296"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"nome\":\"Teste\",\r\n \"email\":\"Teste@teste.com\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/usuarios",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UsuariosById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/usuarios/{id}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "Tarefas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Criar Swagger para API XXXXXXX\",\r\n  \"descricao\": \"Documentar a API com Swagger\",\r\n  \"usuario\": {\r\n    \"id\": \"AJUSTAR_ID_DE_USUARIO_AQUI\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tarefas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarefas",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tarefas/82445a20-672a-4661-a806-e331b9123ef8/status?status=CONCLUIDA",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tarefas",
+								"82445a20-672a-4661-a806-e331b9123ef8",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "CONCLUIDA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarefas com status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tarefas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subtarefas",
+			"item": [
+				{
+					"name": "Subtarefas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Ajuste Endpoint Post usuarios\",\r\n  \"descricao\": \"Ajustar informaçoes do Endpoint Post de usuarios\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tarefas/{tarefaId}/subtarefas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tarefas",
+								"{tarefaId}",
+								"subtarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subtarefas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tarefas/{tarefaId}/subtarefas?status=PENDENTE",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tarefas",
+								"{tarefaId}",
+								"subtarefas"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDENTE",
+									"description": "PENDENTE, EM_ANDAMENTO, CONCLUIDA"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subtarefas",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/subtarefas/{id}/status?status=CONCLUIDA",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subtarefas",
+								"{id}",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "CONCLUIDA",
+									"description": "PENDENTE, EM_ANDAMENTO, CONCLUIDA"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
